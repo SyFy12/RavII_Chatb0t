@@ -86,9 +86,14 @@
     }
 
     // Listeners for Send click and Enter key
+   // Listeners for Send click and Enter key
     sendBtn.addEventListener('click', processInput);
-    userInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') processInput();
+    userInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault(); // Prevents any default quirks
+            processInput();
+        }
+    });
     });
 </script>
 
