@@ -89,7 +89,7 @@
    // Listeners for Send click and Enter key
     sendBtn.addEventListener('click', processInput);
     userInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
+        if (e.=== 'Enter') {
             e.preventDefault(); // Prevents any default quirks
             processInput();
         }
