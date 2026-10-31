@@ -90,7 +90,7 @@ function appendMessage(text, className) {
 sendBtn.addEventListener('click', processInput);
 
 // Enter key
-userInput.addEventListener('keydown', (e) => {
+userInput.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
         e.preventDefault();
         processInput();
