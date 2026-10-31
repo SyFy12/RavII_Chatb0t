@@ -34,67 +34,69 @@
 </div>
 
 <script>
-    const chatBox = document.getElementById('chat-box');
-    const userInput = document.getElementById('user-input');
-    const sendBtn = document.getElementById('send-btn');
+    
+const chatBox = document.getElementById('chat-box');
+const userInput = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
 
-    function processInput() {
-        const rawText = userInput.value.trim();
-        if (rawText === "") return;
+function processInput() {
+    const rawText = userInput.value.trim();
+    if (rawText === "") return;
 
-        // Display User Message
-        appendMessage(rawText, 'user-msg');
-        userInput.value = "";
+    appendMessage(rawText, 'user-msg');
+    userInput.value = "";
 
-        // Process Logic (Translated from your Java code [cite: 3, 4, 5, 6, 7])
-        const cleanInput = rawText.toLowerCase();
-        let response = "";
+    const cleanInput = rawText.toLowerCase();
+    let response = "";
 
-        if (cleanInput === "quit") {
-            response = "Chatbot: Goodbye! Have a great day!"; [cite: 3]
-        } else {
-            switch (cleanInput) {
-                case "hello":
-                case "hi":
-                case "hey":
-                    response = "Chatbot: Hello! How can I assist you today?"; [cite: 4]
-                    break;
-                case "how are you":
-                    response = "Chatbot: I'm just a program, but I'm doing great! How about you?"; [cite: 5]
-                    break;
-                case "what is your name":
-                    response = "Chatbot: I'm your friendly chatbot. What's your name?"; [cite: 6]
-                    break;
-                default:
-                    response = "Chatbot: I'm not sure I understand. Can you rephrase?"; [cite: 7]
-                    break;
-            }
+    if (cleanInput === "quit") {
+        response = "Chatbot: Goodbye! Have a great day!";
+    } else {
+        switch (cleanInput) {
+            case "hello":
+            case "hi":
+            case "hey":
+                response = "Chatbot: Hello! How can I assist you today?";
+                break;
+
+            case "how are you":
+                response = "Chatbot: I'm just a program, but I'm doing great! How about you?";
+                break;
+
+            case "what is your name":
+                response = "Chatbot: I'm Raven Chatbot. What's your name?";
+                break;
+
+            default:
+                response = "Chatbot: I'm not sure I understand. Can you rephrase?";
+                break;
         }
-
-        // Delay response slightly for a "human" feel
-        setTimeout(() => {
-            appendMessage(response, 'bot-msg');
-        }, 600);
     }
 
-    function appendMessage(text, className) {
-        const msgDiv = document.createElement('div');
-        msgDiv.classList.add('message', className);
-        msgDiv.innerText = text;
-        chatBox.appendChild(msgDiv);
-        chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to bottom
-    }
+    setTimeout(() => {
+        appendMessage(response, 'bot-msg');
+    }, 600);
+}
 
-    // Listeners for Send click and Enter key
-   // Listeners for Send click and Enter key
-    sendBtn.addEventListener('click', processInput);
-    userInput.addEventListener('keydown', (e) => {
-        if (e.=== 'Enter') {
-            e.preventDefault(); // Prevents any default quirks
-            processInput();
-        }
-    });
-    });
+function appendMessage(text, className) {
+    const msgDiv = document.createElement('div');
+    msgDiv.classList.add('message', className);
+    msgDiv.innerText = text;
+    chatBox.appendChild(msgDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Green send button
+sendBtn.addEventListener('click', processInput);
+
+// Enter key
+userInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        processInput();
+    }
+});
+
 </script>
 
 </body>
