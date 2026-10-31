@@ -19,7 +19,45 @@
         #input-container { display: flex; padding: 10px; background: #f0f0f0; border-top: 1px solid #ccc; }
         input { flex: 1; padding: 12px; border: none; border-radius: 25px; outline: none; font-size: 16px; }
         button { background: #075e54; color: white; border: none; border-radius: 50%; width: 45px; height: 45px; margin-left: 10px; cursor: pointer; font-size: 1.2rem; }
-    </style>
+   html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+#header {
+    flex-shrink: 0;
+    padding: 18px;
+}
+
+#chat-box {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+#input-container {
+    flex-shrink: 0;
+    padding: 10px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+}
+
+#user-input {
+    min-width: 0;
+    font-size: 16px;
+}
+
+#send-btn {
+    flex-shrink: 0;
+} </style>
 </head>
 <body>
 
