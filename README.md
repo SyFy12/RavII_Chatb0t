@@ -54,7 +54,7 @@ body {
     min-width: 0;
     font-size: 16px;
 }
-
+enterkeyhint="send"
 #send-btn {
     flex-shrink: 0;
 } </style>
